@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../ProjectManager.dart';
 
-class HomePage extends StatelessWidget {
+class ProjectPage extends StatelessWidget {
 @override
   Widget build(BuildContext context) {
     

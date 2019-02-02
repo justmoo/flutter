@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './pages/home.dart';
+import './pages/auth.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,10 +10,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           brightness: Brightness.dark,
           primarySwatch: Colors.blueGrey,
-          accentColor: Colors.deepOrange),
+          accentColor: Colors.blueAccent),
       debugShowCheckedModeBanner: false,
       title: 'FTC APP',
-      home: HomePage(),
+      home: AuthPage(),
     );
   }
 }
