@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+
 class ProjectPage extends StatelessWidget {
   final String title;
   final String imageUrl;

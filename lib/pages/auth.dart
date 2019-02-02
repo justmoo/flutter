@@ -10,7 +10,7 @@ class AuthPage extends StatelessWidget {
       ),
       body: Center(
         child: RaisedButton(
-          child: Text('Login'),
+          child:  Text('Login'),
           onPressed: () {
             Navigator.pushReplacement(
                 context,
@@ -20,6 +20,6 @@ class AuthPage extends StatelessWidget {
         ),
       ),
     );
-    ;
+    
   }
 }

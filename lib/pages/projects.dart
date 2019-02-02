@@ -5,7 +5,7 @@ import './projectAdmins.dart';
 class ProjectPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       drawer: Drawer(
         child: Column(
           children: <Widget>[
@@ -27,7 +27,6 @@ class ProjectPage extends StatelessWidget {
       ),
       appBar: AppBar(
         title: new Text('Project Manager'),
-        
       ),
       body: ProjectManager(),
     );

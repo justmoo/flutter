@@ -5,7 +5,7 @@ class Projects extends StatelessWidget {
   final List<Map<String, String>> projects;
   final Function deleteProject;
 
-  Projects(this.projects , {this.deleteProject});
+  Projects(this.projects, {this.deleteProject});
 
   Widget _buidProjects(BuildContext context, int index) {
     return Card(
@@ -27,11 +27,10 @@ class Projects extends StatelessWidget {
                             projects[index]['title'], projects[index]['image']),
                       ),
                     ).then((bool value) {
-                      if (value){
+                      if (value) {
                         deleteProject(index);
                       }
-
-                    }) ,
+                    }),
               )
             ],
           )
