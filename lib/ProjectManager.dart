@@ -34,6 +34,14 @@ class _ProjectManager extends State<ProjectManager>{
       _projects.add(project);             
                   });
   }
+
+  void _deleteProject(int index){
+    setState(() {
+          _projects.removeAt(index);
+        });
+
+
+  }
   @override
     Widget build(BuildContext context) {
       
@@ -45,7 +53,7 @@ class _ProjectManager extends State<ProjectManager>{
 
             ),
 
-            Expanded( child: Projects(_projects))
+            Expanded( child: Projects(_projects , deleteProject : _deleteProject))
 
         ]
 

@@ -3,8 +3,9 @@ import './pages/project.dart';
 
 class Projects extends StatelessWidget {
   final List<Map<String, String>> projects;
+  final Function deleteProject;
 
-  Projects(this.projects);
+  Projects(this.projects , {this.deleteProject});
 
   Widget _buidProjects(BuildContext context, int index) {
     return Card(
@@ -19,13 +20,18 @@ class Projects extends StatelessWidget {
                 child: Text(
                   'Details',
                 ),
-                onPressed: () => Navigator.push(
+                onPressed: () => Navigator.push<bool>(
                       context,
                       MaterialPageRoute(
                         builder: (BuildContext context) => ProjectPage(
                             projects[index]['title'], projects[index]['image']),
                       ),
-                    ),
+                    ).then((bool value) {
+                      if (value){
+                        deleteProject(index);
+                      }
+
+                    }) ,
               )
             ],
           )

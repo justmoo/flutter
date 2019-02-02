@@ -19,8 +19,8 @@ class ProjectPage extends StatelessWidget {
           children: <Widget>[
             Image.network(imageUrl),
             RaisedButton(
-              child: Text('back'),
-              onPressed: () => Navigator.pop(context),
+              child: Text('Delete'),
+              onPressed: () => Navigator.pop(context, true),
             )
           ],
         )));
