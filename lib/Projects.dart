@@ -1,34 +1,54 @@
 import 'package:flutter/material.dart';
+import './pages/project.dart';
 
 class Projects extends StatelessWidget {
-  final List<String> projects;
-  
-    Projects(this.projects);
+  final List<Map<String, String>> projects;
 
-  @override
+  Projects(this.projects);
 
-  Widget build(BuildContext context) {
-    
-   return Column(
-  children:
-   projects.map((element)=>
-    Card(
-       child: new Column(
-         children: <Widget>[
-          Image.network('https://images.unsplash.com/photo-1532511555597-18d77974461a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1336&q=80'),
-           Text(element),
-         ],
-
-            ),
-
-
-    ),
-                   
-  ).toList(),
-
-
-   );
+  Widget _buidProjects(BuildContext context, int index) {
+    return Card(
+      child: new Column(
+        children: <Widget>[
+          Image.network(projects[index]['image']),
+          Text(projects[index]['title']),
+          ButtonBar(
+            alignment: MainAxisAlignment.center,
+            children: <Widget>[
+              FlatButton(
+                child: Text(
+                  'Details',
+                ),
+                onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => ProjectPage(
+                            projects[index]['title'], projects[index]['image']),
+                      ),
+                    ),
+              )
+            ],
+          )
+        ],
+      ),
+    );
   }
 
+  Widget _buildProjectList() {
+    Widget projectCard = Center(
+      child: Text('No Projects , YAY'),
+    );
+    if (projects.length > 0) {
+      projectCard = ListView.builder(
+        itemBuilder: _buidProjects,
+        itemCount: projects.length,
+      );
+    }
+    return projectCard;
+  }
 
+  @override
+  Widget build(BuildContext context) {
+    return _buildProjectList();
+  }
 }
