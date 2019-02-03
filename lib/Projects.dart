@@ -20,12 +20,9 @@ class Projects extends StatelessWidget {
                 child: Text(
                   'Details',
                 ),
-                onPressed: () => Navigator.push<bool>(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => ProjectPage(
-                            projects[index]['title'], projects[index]['image']),
-                      ),
+                onPressed: () => Navigator.pushNamed<bool>(
+                      context, '/project/' +index.toString()
+                      
                     ).then((bool value) {
                       if (value) {
                         deleteProject(index);

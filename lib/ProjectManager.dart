@@ -2,46 +2,21 @@ import 'package:flutter/material.dart';
 import './Projects.dart';
 import './ProjectControl.dart';
 
-class ProjectManager extends StatefulWidget {
-  final Map startingProject;
+class ProjectManager extends StatelessWidget {
+  final List<Map<String, String>> projects;
+  final Function addProject;
+  final Function deleteProject;
 
-  ProjectManager({this.startingProject});
-  @override
-  State<StatefulWidget> createState() {
-    return _ProjectManager();
-  }
-}
-
-class _ProjectManager extends State<ProjectManager> {
-  List<Map<String, String>> _projects = [];
-  @override
-  void initState() {
-    super.initState();
-    if (widget.startingProject != null) {
-      _projects.add(widget.startingProject);
-    }
-  }
-
-  void _addProject(Map<String, String> project) {
-    setState(() {
-      _projects.add(project);
-    });
-  }
-
-  void _deleteProject(int index) {
-    setState(() {
-      _projects.removeAt(index);
-    });
-  }
+  ProjectManager(this.projects, this.addProject, this.deleteProject);
 
   @override
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
       Container(
         margin: EdgeInsets.all(10.0),
-        child: ProjectControl(_addProject),
+        child: ProjectControl(addProject),
       ),
-      Expanded(child: Projects(_projects, deleteProject: _deleteProject))
+      Expanded(child: Projects(projects, deleteProject: deleteProject))
     ]);
   }
 }

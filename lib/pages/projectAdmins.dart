@@ -16,23 +16,21 @@ class ProjectsAdmin extends StatelessWidget {
                   title: Text('choose'),
                 ),
                 ListTile(
-                  title: Text('Manage Projects'),
+                  title: Text('home page'),
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                ProjectsAdmin()));
+                    Navigator.pushReplacementNamed(
+                        context, '/'
+                    );
                   },
                 )
               ],
             ),
           ),
           appBar: AppBar(
-            title: Text('Project Manager'),
+            title: Text('Admin panel'),
             bottom: TabBar(
               tabs: <Widget>[
-                Tab(icon: Icon(Icons.create), text: "create Projects"),
+                Tab(icon: Icon(Icons.create), text: "Create Projects"),
                 Tab(icon: Icon(Icons.list), text: "List all Project")
               ],
             ),

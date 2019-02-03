@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import '../ProjectManager.dart';
-import './projectAdmins.dart';
 
-class ProjectPage extends StatelessWidget {
+
+class ProjectsPage extends StatelessWidget {
+  final List<Map<String,String>> projects;
+  final Function addProject;
+  final Function deleteProject;
+  ProjectsPage(this.projects,this.addProject,this.deleteProject);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,11 +20,8 @@ class ProjectPage extends StatelessWidget {
             ListTile(
               title: Text('Manage Projects'),
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => ProjectsAdmin()));
-              },
+                Navigator.pushNamed(context ,'/admin' );
+              }
             )
           ],
         ),
@@ -28,7 +29,7 @@ class ProjectPage extends StatelessWidget {
       appBar: AppBar(
         title: new Text('Project Manager'),
       ),
-      body: ProjectManager(),
+      body: ProjectManager(projects,addProject,deleteProject),
     );
   }
 }
