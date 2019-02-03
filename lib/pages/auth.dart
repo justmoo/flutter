@@ -10,7 +10,7 @@ class AuthPage extends StatelessWidget {
       ),
       body: Center(
         child: RaisedButton(
-          child:  Text('Login'),
+          child:  Text('The password ?'),
           onPressed: () {
             Navigator.pushReplacementNamed(context, '/'
              );
