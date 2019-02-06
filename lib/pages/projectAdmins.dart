@@ -3,6 +3,10 @@ import './Project-create.dart';
 import './Project-list.dart';
 
 class ProjectsAdmin extends StatelessWidget {
+  final Function addProject;
+  final Function deleteProject;
+
+  ProjectsAdmin(this.addProject,this.deleteProject);
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -19,7 +23,7 @@ class ProjectsAdmin extends StatelessWidget {
                   title: Text('home page'),
                   onTap: () {
                     Navigator.pushReplacementNamed(
-                        context, '/'
+                        context, '/projects'
                     );
                   },
                 )
@@ -36,7 +40,7 @@ class ProjectsAdmin extends StatelessWidget {
             ),
           ),
           body: TabBarView(
-            children: <Widget>[ProjectCreatePage(), ProjectListPage()],
+            children: <Widget>[ProjectCreatePage(addProject), ProjectListPage()],
           ),
         ));
   }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import './pages/project.dart';
+
 
 class Projects extends StatelessWidget {
-  final List<Map<String, String>> projects;
-  final Function deleteProject;
+  final List<Map<String, dynamic>> projects;
+  
 
-  Projects(this.projects, {this.deleteProject});
+  Projects(this.projects);
 
   Widget _buidProjects(BuildContext context, int index) {
     return Card(
@@ -23,11 +23,7 @@ class Projects extends StatelessWidget {
                 onPressed: () => Navigator.pushNamed<bool>(
                       context, '/project/' +index.toString()
                       
-                    ).then((bool value) {
-                      if (value) {
-                        deleteProject(index);
-                      }
-                    }),
+                    )
               )
             ],
           )

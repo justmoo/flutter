@@ -3,10 +3,9 @@ import '../ProjectManager.dart';
 
 
 class ProjectsPage extends StatelessWidget {
-  final List<Map<String,String>> projects;
-  final Function addProject;
-  final Function deleteProject;
-  ProjectsPage(this.projects,this.addProject,this.deleteProject);
+  final List<Map<String,dynamic>> projects;
+ 
+  ProjectsPage(this.projects);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +28,7 @@ class ProjectsPage extends StatelessWidget {
       appBar: AppBar(
         title: new Text('Project Manager'),
       ),
-      body: ProjectManager(projects,addProject,deleteProject),
+      body: ProjectManager(projects),
     );
   }
 }

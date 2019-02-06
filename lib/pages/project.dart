@@ -4,8 +4,9 @@ import 'dart:async';
 class ProjectPage extends StatelessWidget {
   final String title;
   final String imageUrl;
+  final String description;
 
-  ProjectPage(this.title, this.imageUrl);
+  ProjectPage(this.title, this.imageUrl ,this.description);
 
 _showWarningDialog(BuildContext context){
   showDialog(context: context ,builder: (BuildContext context) {
@@ -42,11 +43,11 @@ _showWarningDialog(BuildContext context){
             title: new Text(title),
           ),
           body: Center(
-              child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+              child: ListView(
+          
             children: <Widget>[
               Image.network(imageUrl),
+              Text(description),
               RaisedButton(
                 child: Text('Delete'),
                 onPressed:() => _showWarningDialog(context),

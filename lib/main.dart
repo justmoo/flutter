@@ -15,9 +15,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Map<String, String>> _projects = [];
+  List<Map<String, dynamic>> _projects = [];
 
-  void _addProject(Map<String, String> project) {
+  void _addProject(Map<String, dynamic> project) {
     setState(() {
       _projects.add(project);
     });
@@ -40,9 +40,10 @@ class _MyAppState extends State<MyApp> {
       title: 'FTC APP',
       // home: AuthPage(),
       routes: {
-        '/': (BuildContext context) =>
-            ProjectsPage(_projects, _addProject, _deleteProject),
-        '/admin': (BuildContext context) => ProjectsAdmin()
+        '/': (BuildContext context) => AuthPage(),
+        '/projects': (BuildContext context) =>
+            ProjectsPage(_projects ),
+        '/admin': (BuildContext context) => ProjectsAdmin(_addProject, _deleteProject)
       },
       onGenerateRoute: (RouteSettings settings) {
         final List<String> pathElement = settings.name.split('/');
@@ -54,7 +55,7 @@ class _MyAppState extends State<MyApp> {
 
           return MaterialPageRoute<bool>(
             builder: (BuildContext context) => ProjectPage(
-                _projects[index]['title'], _projects[index]['image']),
+                _projects[index]['title'], _projects[index]['image'], _projects[index]['description'] ),
           );
         }
         return null;
@@ -62,7 +63,7 @@ class _MyAppState extends State<MyApp> {
       onUnknownRoute: (RouteSettings settings) {
         return MaterialPageRoute(
             builder: (BuildContext context) =>
-                ProjectsPage(_projects, _addProject, _deleteProject));
+                ProjectsPage(_projects));
       },
     );
   }

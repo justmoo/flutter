@@ -17,7 +17,7 @@ class _AuthPageState extends State<AuthPage> {
       appBar: AppBar(
         title: Text('Login'),
       ),
-      body: Container(
+      body:Center( child: Container(
         margin: EdgeInsets.all(10.0),
         child: ListView(
           children: <Widget>[
@@ -55,7 +55,7 @@ class _AuthPageState extends State<AuthPage> {
           ],
         ),
       ),
-    );
+    ));
   }
 }
 
