@@ -55,7 +55,7 @@ class _MyAppState extends State<MyApp> {
 
           return MaterialPageRoute<bool>(
             builder: (BuildContext context) => ProjectPage(
-                _projects[index]['title'], _projects[index]['image'], _projects[index]['description'] ),
+                _projects[index]['title'], _projects[index]['image'], _projects[index]['description'], _projects[index]['points'] ),
           );
         }
         return null;

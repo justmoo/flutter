@@ -29,6 +29,7 @@ class _ProjectCreatePageState extends State<ProjectCreatePage> {
             },
           ),
           TextField(
+            maxLines: 3,
             decoration: InputDecoration(labelText: 'Description'),
             onChanged: (String value) {
               setState(() {

@@ -12,10 +12,26 @@ class Projects extends StatelessWidget {
           Image.network(projects[index]['image']),
           Container(
             padding: EdgeInsets.all(10.0),
-            child: Text(
-              projects[index]['title'],
-              style: TextStyle(fontSize: 25.5, fontWeight: FontWeight.bold),
-            ),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Text(
+                    projects[index]['title'],
+                    style:
+                        TextStyle(fontSize: 25.5, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(width: 10.2),
+                  Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 5.0, vertical: 2.5),
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).accentColor,
+                          borderRadius: BorderRadius.circular(5.0)),
+                      child: Text(
+                        '₿ ${projects[index]['points'].toString()}',
+                        style: TextStyle(fontSize: 17.0),
+                      ))
+                ]),
           ),
           ButtonBar(
             alignment: MainAxisAlignment.center,
