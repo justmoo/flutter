@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-
 class Projects extends StatelessWidget {
   final List<Map<String, dynamic>> projects;
-  
 
   Projects(this.projects);
 
@@ -12,19 +10,22 @@ class Projects extends StatelessWidget {
       child: new Column(
         children: <Widget>[
           Image.network(projects[index]['image']),
-          Text(projects[index]['title']),
+          Container(
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              projects[index]['title'],
+              style: TextStyle(fontSize: 25.5, fontWeight: FontWeight.bold),
+            ),
+          ),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
               FlatButton(
-                child: Text(
-                  'Details',
-                ),
-                onPressed: () => Navigator.pushNamed<bool>(
-                      context, '/project/' +index.toString()
-                      
-                    )
-              )
+                  child: Text(
+                    'Details',
+                  ),
+                  onPressed: () => Navigator.pushNamed<bool>(
+                      context, '/project/' + index.toString()))
             ],
           )
         ],
